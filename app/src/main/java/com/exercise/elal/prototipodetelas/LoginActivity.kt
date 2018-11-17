@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.exercise.elal.prototipodetelas
 
 import android.animation.Animator
@@ -23,6 +25,7 @@ import android.widget.TextView
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
+import android.annotation.SuppressLint
 import android.content.Intent
 
 import kotlinx.android.synthetic.main.activity_login.*
@@ -163,6 +166,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     /**
      * Shows the progress UI and hides the login form.
      */
+    @SuppressLint("ObsoleteSdkInt")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private fun showProgress(show: Boolean) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
@@ -240,14 +244,14 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         val PROJECTION = arrayOf(
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                 ContactsContract.CommonDataKinds.Email.IS_PRIMARY)
-        val ADDRESS = 0
-        val IS_PRIMARY = 1
+        const val ADDRESS = 0
     }
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
+    @SuppressLint("StaticFieldLeak")
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) : AsyncTask<Void, Void, Boolean>() {
 
         override fun doInBackground(vararg params: Void): Boolean? {
@@ -302,7 +306,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
     }
 
-    fun goTelaMenu(v : View){
+    fun goTelaMenu() {
         val i = Intent(this, TabsHolderActivity::class.java)
         startActivity(i)
         finish()
