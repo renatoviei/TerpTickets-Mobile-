@@ -30,14 +30,14 @@ class Tab0EventsActivity : Fragment(){
     val eventos = ArrayList<Evento>()
 
     //adding some dummy data to the list
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos GuararApes, 123", "Vai ser massa"))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
     //creating our adapter
     val adapter = CustomAdapter(eventos)
 
