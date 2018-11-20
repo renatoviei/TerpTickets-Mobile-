@@ -38,9 +38,12 @@
             android:name=".TabsHolderActivity"
             android:label="TabActivity"
             android:theme="@style/NoActionBar" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAS0ztoRkCFMXZeSmfM5kTbNdY336Bz1Eg" />
+
+        <activity android:name=".DetalheActivity"></activity>
     </application>
 
 </manifest>

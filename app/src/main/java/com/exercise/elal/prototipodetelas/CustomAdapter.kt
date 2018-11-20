@@ -1,17 +1,27 @@
 package com.exercise.elal.prototipodetelas
 
+import android.app.Application
+import android.app.PendingIntent.getActivity
+import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import java.security.AccessController.getContext
+import kotlin.coroutines.coroutineContext
 
 /**
  * Created by Belal on 6/19/2017.
  */
 
 class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
@@ -38,6 +48,16 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
             val imageView  = itemView.findViewById(R.id.imageView) as ImageView
             textViewName.text = event.name
             textViewAddress.text = event.address
+            val detalhes = itemView.findViewById(R.id.detalhes) as Button?
+
+
+            detalhes?.setOnClickListener{
+                val i = Intent(itemView.context, DetalheActivity::class.java)
+                itemView.context.startActivity(i)
+            }
         }
+
+
     }
+
 }

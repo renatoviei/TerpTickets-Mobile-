@@ -29,4 +29,6 @@
     <string name="confirmar">CONFIRMAR PRESENÇA</string>
     <!-- Favoritos -->
     <string name="eventosquevou">EVENTOS QUE EU VOU!</string>
+    <string name="data_hora">20/11 - 16h</string>
+    <string name="localizacao">Candeias</string>
 </resources>
