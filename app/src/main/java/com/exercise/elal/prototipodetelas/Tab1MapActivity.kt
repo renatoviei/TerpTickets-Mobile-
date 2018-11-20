@@ -55,7 +55,7 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback{
 
 
         gMap = googleMap
-        gMap.addMarker(MarkerOptions().position(ceagri).title("CREAGRI II").snippet("Eventos aqui: Amansa Calouro"))
+        gMap.addMarker(MarkerOptions().position(ceagri).title("CREAGRI II").snippet("Eventos aqui: Amansa Calouro, Som de Doido"))
         gMap.addMarker(MarkerOptions().position(bdc).title("Bar da Curva").snippet("Eventos aqui: Caloujava, Bregosidade"))
         gMap.addMarker(MarkerOptions().position(sl_nb).title("Salão Nobre - UFRPE").snippet("Eventos aqui: Aula Magna"))
         gMap.addMarker(MarkerOptions().position(cs_marc).title("Casa de Pai Marcos").snippet("Eventos aqui: Bate Terreiro, Fumaça Não É Água"))
