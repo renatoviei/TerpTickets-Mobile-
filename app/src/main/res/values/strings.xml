@@ -22,7 +22,6 @@
     <string name="title_events_frag">Eventos</string>
     <string name="title_map_frag">Mapa</string>
     <string name="title_favorites_frag">Favoritos</string>
-    <string name="title_activity_ab">ab</string>
     <string name="title_activity_maps">Mapa</string>
     <!-- Eventos -->
     <string name="detalhes">+ DETALHES</string>
