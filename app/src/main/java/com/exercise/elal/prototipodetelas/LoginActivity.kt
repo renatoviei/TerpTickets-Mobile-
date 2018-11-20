@@ -306,7 +306,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
     }
 
-    fun goTelaMenu() {
+    fun goTelaMenu(v: View) {
         val i = Intent(this, TabsHolderActivity::class.java)
         startActivity(i)
         finish()
