@@ -7,7 +7,7 @@ import android.support.v7.app.AlertDialog
 import android.widget.Button
 import android.widget.Toast
 import android.content.DialogInterface
-
+import android.widget.ImageView
 
 
 class DetalheActivity : AppCompatActivity() {
@@ -42,6 +42,11 @@ class DetalheActivity : AppCompatActivity() {
             alerta?.show()
         }
 
+        val image = findViewById(R.id.imageView3) as ImageView?
+
+        image?.setOnClickListener {
+            this.finish()
+        }
 
     }
 }
