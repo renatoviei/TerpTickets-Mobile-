@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Prototipo De Telas</string>
+    <string name="app_name">Screens Scracth</string>
     <string name="title_activity_login">Sign in</string>
     <string name="opts">Options</string>
     <string name="abt">About</string>
@@ -28,4 +28,5 @@
     <string name="eventosquevou">EVENTS THAT I GO!</string>
     <string name="data_hora">20/11 - 16h</string>
     <string name="localizacao">Candeias</string>
+    <string name="Reserv">Reserve</string>
 </resources>

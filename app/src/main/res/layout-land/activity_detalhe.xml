@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalheActivity"
+    tools:layout_editor_absoluteY="73dp">
+
+    <ImageView
+        android:id="@+id/eventImg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/eventDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rolling" />
+
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="47dp"
+        android:text="Som de Doido"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eventDetail"
+        android:layout_width="284dp"
+        android:layout_height="131dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="54dp"
+        android:text="Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa."
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ico_cal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eventImg"
+        app:layout_constraintTop_toTopOf="@+id/eventTitle" />
+
+    <Button
+        android:id="@+id/btnReservar"
+        android:layout_width="74dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="19dp"
+        android:background="@color/colorAccent"
+        android:text="@string/Reserv"
+        android:textColor="@color/common_google_signin_btn_text_light_default"
+        app:layout_constraintBottom_toBottomOf="@+id/data_hora"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ico_loc" />
+
+    <ImageView
+        android:id="@+id/ico_loc"
+        android:layout_width="58dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/localizacao"
+        app:layout_constraintStart_toStartOf="@+id/localizacao"
+        app:layout_constraintTop_toBottomOf="@+id/eventDetail"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_action_loc" />
+
+    <ImageView
+        android:id="@+id/ico_cal"
+        android:layout_width="59dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/data_hora"
+        app:layout_constraintEnd_toEndOf="@+id/data_hora"
+        app:layout_constraintTop_toBottomOf="@+id/eventImg"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_action_name" />
+
+    <TextView
+        android:id="@+id/localizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/localizacao"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/data_hora"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/data_hora"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

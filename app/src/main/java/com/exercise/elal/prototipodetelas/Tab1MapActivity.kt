@@ -17,11 +17,7 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback{
     lateinit var gMap: GoogleMap
     lateinit var mapV: MapView
     lateinit var mView: View
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
+    
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.fragment_tab_map,container, false)
         return mView
