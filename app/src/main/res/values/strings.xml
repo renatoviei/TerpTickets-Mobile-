@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Prototipo De Telas</string>
-    <string name="title_activity_login" translatable="false">Entrar</string>
+    <string name="title_activity_login">Entrar</string>
     <string name="opts">Opções</string>
     <string name="abt">Sobre</string>
     <!-- Strings related to login -->

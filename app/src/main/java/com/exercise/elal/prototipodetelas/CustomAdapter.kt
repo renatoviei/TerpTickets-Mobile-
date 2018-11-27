@@ -1,10 +1,6 @@
 package com.exercise.elal.prototipodetelas
 
-import android.app.Application
-import android.app.PendingIntent.getActivity
-import android.content.Context
 import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import java.security.AccessController.getContext
-import kotlin.coroutines.coroutineContext
 
 /**
  * Created by Belal on 6/19/2017.
@@ -43,9 +37,9 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(event: Evento) {
-            val textViewName = itemView.findViewById(R.id.textView2) as TextView
-            val textViewAddress  = itemView.findViewById(R.id.textView3) as TextView
-            val imageView  = itemView.findViewById(R.id.imageView) as ImageView
+            val textViewName = itemView.findViewById(R.id.eventName) as TextView
+            val textViewAddress  = itemView.findViewById(R.id.locationName) as TextView
+            val imageView  = itemView.findViewById(R.id.eventImage) as ImageView
             textViewName.text = event.name
             textViewAddress.text = event.address
             val detalhes = itemView.findViewById(R.id.detalhes) as Button?

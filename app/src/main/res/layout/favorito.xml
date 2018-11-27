@@ -17,7 +17,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/eventImage"
             android:layout_width="71dp"
             android:layout_height="84dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -34,7 +34,7 @@
             app:layout_constraintBottom_toTopOf="@+id/descEvento"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.079"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/eventImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -46,7 +46,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toEndOf="@+id/imageView" />
+            app:layout_constraintStart_toEndOf="@+id/eventImage" />
 
     </android.support.constraint.ConstraintLayout>
 

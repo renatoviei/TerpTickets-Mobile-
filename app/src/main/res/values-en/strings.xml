@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Screens Scracth</string>
+    <string name="app_name">Screens Scrap</string>
     <string name="title_activity_login">Sign in</string>
     <string name="opts">Options</string>
     <string name="abt">About</string>
