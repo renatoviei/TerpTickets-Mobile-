@@ -1,23 +1,18 @@
 package com.exercise.elal.prototipodetelas
 
 import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-
+import com.google.android.gms.maps.model.*
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 
 
 class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
@@ -73,10 +68,17 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         //algumas cordenadas
 
         gMap = googleMap
-        gMap.addMarker(MarkerOptions().position(ceagri).title("CREAGRI II").snippet("Eventos aqui: Amansa Calouro, Som de Doido"))
-        gMap.addMarker(MarkerOptions().position(bdc).title("Bar da Curva").snippet("Eventos aqui: Caloujava, Bregosidade"))
-        gMap.addMarker(MarkerOptions().position(sl_nb).title("Salão Nobre - UFRPE").snippet("Eventos aqui: Aula Magna"))
-        gMap.addMarker(MarkerOptions().position(cs_marc).title("Casa de Pai Marcos").snippet("Eventos aqui: Bate Terreiro, Fumaça Não É Água"))
+
+        val height = 86
+        val width = 86
+        val myDrawable = resources.getDrawable(R.drawable.thefreeforty_location)
+        val bitImage = (myDrawable as BitmapDrawable).bitmap
+        val smallMarker = Bitmap.createScaledBitmap(bitImage, width, height, false)
+
+        gMap.addMarker(MarkerOptions().position(ceagri).title("CREAGRI II").snippet("Eventos aqui: Amansa Calouro, Som de Doido").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
+        gMap.addMarker(MarkerOptions().position(bdc).title("Bar da Curva").snippet("Eventos aqui: Caloujava, Bregosidade").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
+        gMap.addMarker(MarkerOptions().position(sl_nb).title("Salão Nobre - UFRPE").snippet("Eventos aqui: Aula Magna").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
+        gMap.addMarker(MarkerOptions().position(cs_marc).title("Casa de Pai Marcos").snippet("Eventos aqui: Bate Terreiro, Fumaça Não É Água").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
 
         val start_point : CameraPosition = CameraPosition.builder().target(stPt).zoom(13F).bearing(4F).build()
 
