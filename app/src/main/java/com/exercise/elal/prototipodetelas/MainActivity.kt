@@ -14,12 +14,15 @@ class MainActivity : AppCompatActivity() {
         val background = object : Thread(){
             override fun run() {
                 try {
-                    Thread.sleep(5000)
+                    Thread.sleep(3500)
 
                     val intent = Intent(baseContext, LoginActivity::class.java)
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()
+                }
+                finally {
+                    finish()
                 }
             }
         }
