@@ -27,20 +27,17 @@
             android:id="@+id/eventosquevou"
             android:layout_width="289dp"
             android:layout_height="27dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:autoText="false"
             android:fontFamily="sans-serif"
-            android:text="@string/eventosquevou"
-            android:textColor="@android:color/white"
+            android:hint="@string/eventosquevou"
+            android:textColorHint="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/searchView"
-            app:layout_constraintHorizontal_bias="0.031"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.538" />
+            app:layout_constraintVertical_bias="0.523" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -59,6 +56,7 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="10dp"
         android:clickable="true"
+        android:visibility="invisible"
         app:backgroundTint="@color/colorAccent2"
         app:srcCompat="@android:drawable/ic_input_add" />
 
