@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "861455693061",
+    "firebase_url": "https://terptickets-3c6ca.firebaseio.com",
+    "project_id": "terptickets-3c6ca",
+    "storage_bucket": "terptickets-3c6ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861455693061:android:383fbebbac3e69c2",
+        "android_client_info": {
+          "package_name": "com.exercise.elal.prototipodetelas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861455693061-j9sh51t27uaoim0poiss02d5pojng5md.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exercise.elal.prototipodetelas",
+            "certificate_hash": "f379b6e4729e3ed973220ea69710670f6ef467c2"
+          }
+        },
+        {
+          "client_id": "861455693061-7eo25lenung599l5v4kvp1gsoc4ojknv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOTk9eD1IxrvR3MGJJDaG6z7k-BEw25GY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861455693061-7eo25lenung599l5v4kvp1gsoc4ojknv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
