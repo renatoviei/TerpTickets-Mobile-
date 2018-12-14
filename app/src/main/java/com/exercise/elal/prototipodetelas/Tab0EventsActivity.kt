@@ -8,13 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.exercise.elal.prototipodetelas.R.attr.layoutManager
+import model.Evento
+import model.Ingresso
 
 
 class Tab0EventsActivity : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view: View = inflater.inflate(R.layout.fragment_tab_event,container, false)
+        val view: View = inflater.inflate(R.layout.fragment_tab_event,container, false)
 
     //getting recyclerview from xml
     val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
@@ -28,16 +29,17 @@ class Tab0EventsActivity : Fragment(){
 
     //crating an arraylist to store users using the data class user
     val eventos = ArrayList<Evento>()
+        val ingresso = Ingresso(123456789)
 
     //adding some dummy data to the list
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa"))
+    eventos.add(Evento("Som de Doido",  "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa","20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa" , "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
     //creating our adapter
     val adapter = CustomAdapter(eventos)
 

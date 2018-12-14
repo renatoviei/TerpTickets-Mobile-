@@ -102,6 +102,16 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:src="@android:drawable/btn_star"
+            app:backgroundTint="@color/colorAccent2" />
+
     </android.support.v7.widget.CardView>
 
 
