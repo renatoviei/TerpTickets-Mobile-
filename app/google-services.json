@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "861455693061-t2v5olkpi1oofpj1ber7e4eqll14n3m5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exercise.elal.prototipodetelas",
+            "certificate_hash": "e354db67be17290f4a52275a62e774783e4faae6"
+          }
+        },
+        {
           "client_id": "861455693061-7eo25lenung599l5v4kvp1gsoc4ojknv.apps.googleusercontent.com",
           "client_type": 3
         }
