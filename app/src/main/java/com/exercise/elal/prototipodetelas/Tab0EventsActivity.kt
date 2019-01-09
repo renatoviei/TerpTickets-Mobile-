@@ -32,14 +32,14 @@ class Tab0EventsActivity : Fragment(){
         val ingresso = Ingresso(123456789)
 
     //adding some dummy data to the list
-    eventos.add(Evento("Som de Doido",  "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa","20/11-16h", 15, 200,"imageCodigo", ingresso))
-    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa" , "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido",  "Candeias, \nJaboatão dos Guararapes, \n123", "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Diferenciado", "Candeias, \nJaboatão dos Guararapes, \n123", "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, \nJaboatão dos Guararapes, \n123", "Vai ser massa","20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, \nJaboatão dos Guararapes, \n123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, \nJaboatão dos Guararapes, \n123", "Vai ser massa" , "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, \nJaboatão dos Guararapes, \n123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, \nJaboatão dos Guararapes, \n123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+        eventos.add(Evento("Som de Doido", "Candeias, \nJaboatão dos Guararapes, \n123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
     //creating our adapter
     val adapter = CustomAdapter(eventos)
 

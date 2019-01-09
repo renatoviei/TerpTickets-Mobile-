@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.Button
 import android.widget.Toast
-import android.content.DialogInterface
 import android.widget.ImageView
+import android.widget.TextView
 
 
 class DetalheActivity : AppCompatActivity() {
@@ -16,6 +16,20 @@ class DetalheActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhe)
+        val nome:String = intent.getStringExtra("NAME")
+        val descricao:String = intent.getStringExtra("DESCRIPTION")
+        val data:String = intent.getStringExtra("DATE")
+        val endereco:String = intent.getStringExtra("ADRESS")
+
+        val textViewName = findViewById(R.id.eventTitle) as TextView
+        val textViewAddress  = findViewById(R.id.localizacao) as TextView
+        val textViewDate  = findViewById(R.id.data_hora) as TextView
+        val textViewDescription  = findViewById(R.id.eventDetail) as TextView
+
+        textViewName.text = nome
+        textViewAddress.text = endereco
+        textViewDate.text = data
+        textViewDescription.text = descricao
 
         val detalhes = findViewById(R.id.btnReservar) as Button?
 

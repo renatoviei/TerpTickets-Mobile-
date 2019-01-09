@@ -40,14 +40,21 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
         fun bindItems(event: Evento) {
             val textViewName = itemView.findViewById(R.id.eventName) as TextView
             val textViewAddress  = itemView.findViewById(R.id.locationName) as TextView
+            val textViewDate  = itemView.findViewById(R.id.eventDate) as TextView
+            val textViewDescription  = event.description
             val imageView  = itemView.findViewById(R.id.eventImage) as ImageView
             textViewName.text = event.name
             textViewAddress.text = event.address
+            textViewDate.text = event.dateHour
             val detalhes = itemView.findViewById(R.id.detalhes) as Button?
 
 
             detalhes?.setOnClickListener{
                 val i = Intent(itemView.context, DetalheActivity::class.java)
+                i.putExtra("NAME", textViewName.text as String)
+                i.putExtra("ADRESS", textViewAddress.text as String)
+                i.putExtra("DATE", textViewDate.text as String)
+                i.putExtra("DESCRIPTION", textViewDescription)
                 itemView.context.startActivity(i)
             }
         }
