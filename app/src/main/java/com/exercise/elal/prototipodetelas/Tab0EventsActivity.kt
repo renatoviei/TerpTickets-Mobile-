@@ -29,17 +29,18 @@ class Tab0EventsActivity : Fragment(){
 
     //crating an arraylist to store users using the data class user
     val eventos = ArrayList<Evento>()
-        val ingresso = Ingresso(123456789)
+    val ingresso = Ingresso(123456789)
 
     //adding some dummy data to the list
     eventos.add(Evento("Som de Doido",  "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
     eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
     eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa","20/11-16h", 15, 200,"imageCodigo", ingresso))
     eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa" , "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
-        eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa" , "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+    eventos.add(Evento("Som de Doido", "Candeias, Jaboatão dos Guararapes, 123", "Vai ser massa", "20/11-16h", 15, 200,"imageCodigo", ingresso))
+
     //creating our adapter
     val adapter = CustomAdapter(eventos)
 

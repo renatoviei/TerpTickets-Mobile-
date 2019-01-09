@@ -35,9 +35,7 @@ import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.AuthResult
 
-/**
- * A login screen that offers login via email/password.
- */
+
 class LoginActivity : AppCompatActivity()/*, LoaderCallbacks<Cursor> */{
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
