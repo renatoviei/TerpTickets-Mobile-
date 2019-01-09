@@ -22,6 +22,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.google.android.gms.tasks.OnCompleteListener
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
@@ -30,21 +31,30 @@ import android.content.Intent
 
 import kotlinx.android.synthetic.main.activity_login.*
 import android.view.Menu
+import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.AuthResult
 
 /**
  * A login screen that offers login via email/password.
  */
-class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
+class LoginActivity : AppCompatActivity()/*, LoaderCallbacks<Cursor> */{
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
-    private var mAuthTask: UserLoginTask? = null
+    //private var mAuthTask: UserLoginTask? = null
+    private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         // Set up the login form.
-        populateAutoComplete()
+        mAuth = FirebaseAuth.getInstance()
+        var btnLogin = findViewById<Button>(R.id.email_sign_in_button)
+        btnLogin.setOnClickListener {view ->
+            signIn(view,findViewById<TextView>(R.id.email).text.toString(), findViewById<TextView>(R.id.password).text.toString())
+        }
+        /*populateAutoComplete()
         password.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
             if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
                 attemptLogin()
@@ -53,7 +63,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
             false
         })
 
-        email_sign_in_button.setOnClickListener { attemptLogin() }
+        email_sign_in_button.setOnClickListener { attemptLogin() }*/
     }
 
 
@@ -63,15 +73,15 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
         return true //super.onCreateOptionsMenu(menu)
     }
 
-    private fun populateAutoComplete() {
+    /*private fun populateAutoComplete() {
         if (!mayRequestContacts()) {
             return
         }
 
         loaderManager.initLoader(0, null, this)
-    }
+    }*/
 
-    private fun mayRequestContacts(): Boolean {
+    /*private fun mayRequestContacts(): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true
         }
@@ -86,27 +96,54 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
             requestPermissions(arrayOf(READ_CONTACTS), REQUEST_READ_CONTACTS)
         }
         return false
-    }
+    }*/
 
     /**
      * Callback received when a permissions request has been completed.
      */
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
+   /* override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
                                             grantResults: IntArray) {
         if (requestCode == REQUEST_READ_CONTACTS) {
             if (grantResults.size == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 populateAutoComplete()
             }
         }
+    }*/
+    override fun onStart() {
+        super.onStart()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val i = Intent(this, TabsHolderActivity::class.java)
+            startActivity(i)
+            finish()
+        }
     }
+    fun signIn(view: View,email: String, password: String){
+        showMessage(view,"Authenticating...")
+        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+            mAuth?.signInWithEmailAndPassword(email, password)?.addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
+                if (task.isSuccessful) {
+                    var intent = Intent(this, TabsHolderActivity::class.java)
+                    intent.putExtra("id", mAuth?.currentUser?.email)
+                    startActivity(intent)
 
-
+                } else {
+                    showMessage(view, "Error: ${task.exception?.message}")
+                }
+            })
+        }else{
+            showMessage(view, "Preencha os campos corretamente!")
+        }
+    }
+    fun showMessage(view:View, message: String){
+        Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE).setAction("Action", null).show()
+    }
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private fun attemptLogin() {
+    /*private fun attemptLogin() {
         if (mAuthTask != null) {
             return
         }
@@ -305,7 +342,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
          */
         private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
     }
-
+*/
     fun goTelaMenu(v: View) {
         val i = Intent(this, TabsHolderActivity::class.java)
         startActivity(i)

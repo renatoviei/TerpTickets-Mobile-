@@ -1,5 +1,6 @@
 package com.exercise.elal.prototipodetelas
 
+import android.content.Intent
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 
@@ -9,6 +10,9 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
 
 import kotlinx.android.synthetic.main.activity_tab.*
 
@@ -23,11 +27,15 @@ class TabsHolderActivity : AppCompatActivity() {
      * [android.support.v4.app.FragmentStatePagerAdapter].
      */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
-
+    private var mAuth: FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab)
-
+        mAuth = FirebaseAuth.getInstance()
+        var btnLogout = findViewById<Button>(R.id.logout)
+        btnLogout.setOnClickListener {view ->
+            signOut()
+        }
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
         // Set up the ViewPager with the sections adapter.
@@ -38,7 +46,11 @@ class TabsHolderActivity : AppCompatActivity() {
 
     }
 
-
+    fun signOut(){
+        mAuth?.signOut()
+        var intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_tab, menu)
