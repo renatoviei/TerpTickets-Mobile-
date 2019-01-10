@@ -3,6 +3,7 @@
     <string name="title_activity_login">Entrar</string>
     <string name="opts">Opções</string>
     <string name="abt">Sobre</string>
+    <string name="out">Sair</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Senha (opcional)</string>
@@ -31,4 +32,5 @@
     <string name="data_hora">20/11 - 16h</string>
     <string name="localizacao">Candeias</string>
     <string name="Reserv">Reservar</string>
+    <string name="eventhr">Eventos aqui:</string>
 </resources>

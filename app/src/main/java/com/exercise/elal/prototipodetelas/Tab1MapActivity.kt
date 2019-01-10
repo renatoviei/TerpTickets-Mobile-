@@ -13,6 +13,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import com.exercise.elal.prototipodetelas.Tab0EventsActivity.event.eventos
 
 
 class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
@@ -60,25 +61,27 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
             googleMap.isMyLocationEnabled = true
         }
 
-        val stPt = LatLng(-8.047460, -34.917462) //ponto inicial do zoom do mapa
-        val ceagri = LatLng(-8.017724, -34.944367)
-        val bdc = LatLng(-8.016153, -34.945425)
-        val sl_nb = LatLng(-8.014445, -34.950528)
-        val cs_marc = LatLng(-8.020633, -34.956783)
         //algumas cordenadas
+        val stPt = LatLng(-8.047460, -34.917462) //ponto inicial do zoom do mapa
 
         gMap = googleMap
 
+        //ajustes para criação do ícone no mapa
         val height = 86
         val width = 86
         val myDrawable = resources.getDrawable(R.drawable.thefreeforty_location)
         val bitImage = (myDrawable as BitmapDrawable).bitmap
         val smallMarker = Bitmap.createScaledBitmap(bitImage, width, height, false)
+        val markerFin = BitmapDescriptorFactory.fromBitmap(smallMarker)
 
-        gMap.addMarker(MarkerOptions().position(ceagri).title("CREAGRI II").snippet("Eventos aqui: Amansa Calouro, Som de Doido").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
-        gMap.addMarker(MarkerOptions().position(bdc).title("Bar da Curva").snippet("Eventos aqui: Caloujava, Bregosidade").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
-        gMap.addMarker(MarkerOptions().position(sl_nb).title("Salão Nobre - UFRPE").snippet("Eventos aqui: Aula Magna").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
-        gMap.addMarker(MarkerOptions().position(cs_marc).title("Casa de Pai Marcos").snippet("Eventos aqui: Bate Terreiro, Fumaça Não É Água").icon(BitmapDescriptorFactory.fromBitmap(smallMarker)))
+        // criação dos pontos no mapa
+        val eventList = Tab0EventsActivity.event.eventos
+        for (i in eventList){
+            gMap.addMarker(MarkerOptions().position(LatLng(i.cordLat, i.cordLng))
+                                          .title(i.address)
+                                          .snippet(R.string.eventhr.toString() + i.name.toString())
+                                          .icon(markerFin))
+        }
 
         val start_point : CameraPosition = CameraPosition.builder().target(stPt).zoom(13F).bearing(4F).build()
 

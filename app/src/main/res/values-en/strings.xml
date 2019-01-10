@@ -29,4 +29,6 @@
     <string name="data_hora">20/11 - 16h</string>
     <string name="localizacao">Candeias</string>
     <string name="Reserv">Reserve</string>
+    <string name="out">Log Out</string>
+    <string name="eventhr">Events here:</string>
 </resources>

@@ -8,4 +8,6 @@ data class Evento(val name: String,
                   val price: Int,
                   val numTickets: Int,
                   val image: String,
+                  val cordLat: Double,
+                  val cordLng: Double,
                   val ticket: Ingresso)
