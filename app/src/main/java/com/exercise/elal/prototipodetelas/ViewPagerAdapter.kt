@@ -29,7 +29,7 @@ class ViewPagerAdapter (val favoritos: ArrayList<Favorito>): RecyclerView.Adapte
             //val imageView  = itemView.findViewById(R.id.imageView) as ImageView
 
             nomeEvento?.text = fav.title
-            descEvento?.text = fav.desc
+            descEvento?.text = fav.endereco
         }
     }
 

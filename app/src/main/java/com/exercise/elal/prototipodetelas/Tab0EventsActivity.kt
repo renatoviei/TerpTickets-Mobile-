@@ -17,6 +17,7 @@ class Tab0EventsActivity : Fragment(){
     object event {
 
         val eventos = ArrayList<Evento>()
+        var favoritos = ArrayList<Evento>()
 
     }
 
@@ -47,30 +48,35 @@ class Tab0EventsActivity : Fragment(){
             "imageCodigo",
             -8.017724,
             -34.944367,
+            false,
             ingresso))
     event.eventos.add(Evento("Cola Grau - A União",
-                "Salão Nobre UFRPE - Dois Irmãos, \nRecife, \n456",
-                "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
-                "20/11-14h",
-                15,
-                200,
-                "imageCodigo",
-                -8.014445,
-                -34.950528,
-                ingresso))
+            "Salão Nobre UFRPE - Dois Irmãos, \nRecife, \n456",
+            "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
+            "20/11-14h",
+            15,
+            200,
+            "imageCodigo",
+            -8.014445,
+            -34.950528,
+            false,
+            ingresso))
     event.eventos.add(Evento("Breja Diferenciada",
-                "Bar da Curva - Dois Irmãos, \nRecife, \n789",
-                "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
-                "20/11-20h",
-                10,
-                350,
-                "imageCodigo",
-                -8.016153,
-                -34.945425,
-                 ingresso))
+            "Bar da Curva - Dois Irmãos, \nRecife, \n789",
+            "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
+            "20/11-20h",
+            10,
+            350,
+            "imageCodigo",
+            -8.016153,
+            -34.945425,
+            true,
+            ingresso))
 
     //creating our adapter
     val adapter = CustomAdapter(event.eventos)
+
+    event.eventos.filterTo(event.favoritos) {it.favorite == true}
 
     //now adding the adapter to recyclerview
     recyclerView.adapter = adapter

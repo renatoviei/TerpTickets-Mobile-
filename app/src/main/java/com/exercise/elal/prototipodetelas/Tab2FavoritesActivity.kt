@@ -19,10 +19,13 @@ class Tab2FavoritesActivity : Fragment(){
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
 
         val favoritos = ArrayList<Favorito>()
-        favoritos.add(Favorito("Samba", "Evento de samba mt doido"))
-        favoritos.add(Favorito("Pagode", "Pagodao da massa"))
-        favoritos.add(Favorito("Funk", "Funk 150bpm"))
 
+        //carrega favoritos da lista de eventos
+        val favoriteList = Tab0EventsActivity.event.favoritos
+        for (i in favoriteList){
+            favoritos.add(Favorito(i.name, i.address))
+        }
+        
         recyclerView.adapter = ViewPagerAdapter(favoritos)
         return view
     }

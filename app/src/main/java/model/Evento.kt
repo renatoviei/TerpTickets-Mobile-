@@ -10,4 +10,5 @@ data class Evento(val name: String,
                   val image: String,
                   val cordLat: Double,
                   val cordLng: Double,
+                  val favorite: Boolean,
                   val ticket: Ingresso)
