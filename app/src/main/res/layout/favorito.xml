@@ -18,9 +18,14 @@
 
         <ImageView
             android:id="@+id/eventImage"
-            android:layout_width="71dp"
-            android:layout_height="84dp"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="234dp"
+            android:paddingLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/discos_de_vinil" />
@@ -30,6 +35,7 @@
             android:id="@+id/nomeEvento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="Fav 1"
             android:textColor="@color/colorAccent2"
             android:textSize="18sp"
@@ -43,12 +49,25 @@
             android:id="@+id/descEvento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:text="Bla bla bla bla"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.098"
             app:layout_constraintStart_toEndOf="@+id/eventImage" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:clickable="true"
+            app:backgroundTint="@color/cinza"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/eventImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_input_add" />
 
     </android.support.constraint.ConstraintLayout>
 

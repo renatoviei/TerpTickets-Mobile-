@@ -119,6 +119,7 @@
             android:layout_marginLeft="290dp"
             android:layout_marginTop="20dp"
             android:clickable="true"
+            android:onClick="favoritar"
             android:src="@android:drawable/btn_star"
             app:backgroundTint="@color/colorAccent2" />
 

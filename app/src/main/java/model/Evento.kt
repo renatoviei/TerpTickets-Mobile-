@@ -1,5 +1,7 @@
 package model
 
+import android.util.EventLog
+
 
 data class Evento(val name: String,
                   val address: String,
@@ -10,5 +12,9 @@ data class Evento(val name: String,
                   val image: String,
                   val cordLat: Double,
                   val cordLng: Double,
-                  val favorite: Boolean,
+                  var favorite: Boolean,
                   val ticket: Ingresso)
+
+
+
+
