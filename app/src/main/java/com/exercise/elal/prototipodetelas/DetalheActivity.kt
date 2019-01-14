@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
 
 class DetalheActivity : AppCompatActivity() {
@@ -20,16 +21,19 @@ class DetalheActivity : AppCompatActivity() {
         val descricao:String = intent.getStringExtra("DESCRIPTION")
         val data:String = intent.getStringExtra("DATE")
         val endereco:String = intent.getStringExtra("ADRESS")
+        val imagem:String = intent.getStringExtra("IMAGE")
 
         val textViewName = findViewById(R.id.eventTitle) as TextView
         val textViewAddress  = findViewById(R.id.localizacao) as TextView
         val textViewDate  = findViewById(R.id.data_hora) as TextView
         val textViewDescription  = findViewById(R.id.eventDetail) as TextView
+        val imageView = findViewById(R.id.eventImg) as ImageView
 
         textViewName.text = nome
         textViewAddress.text = endereco
         textViewDate.text = data
         textViewDescription.text = descricao
+        Glide.with(this).load(imagem).into(imageView)
 
         val detalhes = findViewById(R.id.btnReservar) as Button?
 

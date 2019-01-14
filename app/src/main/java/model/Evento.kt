@@ -13,7 +13,7 @@ data class Evento(val name: String,
                   val cordLat: Double,
                   val cordLng: Double,
                   var favorite: Boolean,
-                  val ticket: Ingresso)
+                  val ticket: Long)
 
 
 

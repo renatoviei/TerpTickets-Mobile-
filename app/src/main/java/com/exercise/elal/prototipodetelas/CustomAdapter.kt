@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.bumptech.glide.Glide
 import model.Evento
 
 
@@ -45,6 +46,8 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
             val textViewDate  = itemView.findViewById(R.id.eventDate) as TextView
             val textViewDescription  = event.description
             val imageView  = itemView.findViewById(R.id.eventImage) as ImageView
+
+            Glide.with(itemView).load(event.image).into(imageView)
             textViewName.text = event.name
             textViewAddress.text = event.address
             textViewDate.text = event.dateHour
@@ -67,6 +70,7 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
                 i.putExtra("ADRESS", textViewAddress.text as String)
                 i.putExtra("DATE", textViewDate.text as String)
                 i.putExtra("DESCRIPTION", textViewDescription)
+                i.putExtra("IMAGE", event.image)
                 itemView.context.startActivity(i)
             }
         }
