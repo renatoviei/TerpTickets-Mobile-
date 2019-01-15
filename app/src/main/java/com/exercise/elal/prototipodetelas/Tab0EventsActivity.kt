@@ -1,8 +1,6 @@
 package com.exercise.elal.prototipodetelas
 
-import android.content.Intent
-import android.content.Intent.getIntent
-import android.content.Intent.getIntentOld
+
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -11,15 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.exercise.elal.prototipodetelas.R.layout.fragment_tab_event
-import com.exercise.elal.prototipodetelas.Tab0EventsActivity.event.favoritos
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import model.Evento
 import model.Favorito
 import model.Ingresso
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-
-
+import com.google.firebase.database.ValueEventListener
 
 
 class Tab0EventsActivity : Fragment(){
@@ -53,7 +49,7 @@ class Tab0EventsActivity : Fragment(){
             val ingresso = Ingresso(123456789)
 
             //adding some dummy data to the list
-            database.reference.child("eventos").child("somdedoido").setValue(Evento("Som de Doido",
+            database.reference.child("eventos").child("somdedoido").setValue(Evento("Som de Doido 2",
                     "Dois Irmãos, \nRecife, \n123",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
                     "20/11-16h",
@@ -64,6 +60,7 @@ class Tab0EventsActivity : Fragment(){
                     -34.944367,
                     false,
                     ingresso.codigo))
+            /*
             event.eventos.add(Evento("Som de Doido",
                     "Dois Irmãos, \nRecife, \n123",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
@@ -75,7 +72,7 @@ class Tab0EventsActivity : Fragment(){
                     -34.944367,
                     false,
                     ingresso.codigo))
-
+            */
             database.reference.child("eventos").child("colagrau").setValue(Evento("Cola Grau - A União",
                     "Salão Nobre UFRPE - Dois Irmãos, \nRecife, \n456",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
@@ -87,6 +84,7 @@ class Tab0EventsActivity : Fragment(){
                     -34.950528,
                     false,
                     ingresso.codigo))
+            /*
             event.eventos.add(Evento("Cola Grau - A União",
                     "Salão Nobre UFRPE - Dois Irmãos, \nRecife, \n456",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
@@ -98,7 +96,7 @@ class Tab0EventsActivity : Fragment(){
                     -34.950528,
                     false,
                     ingresso.codigo))
-
+            */
             database.reference.child("eventos").child("brejadiferenciada").setValue(Evento("Breja Diferenciada",
                     "Bar da Curva - Dois Irmãos, \nRecife, \n789",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
@@ -110,6 +108,8 @@ class Tab0EventsActivity : Fragment(){
                     -34.945425,
                     false,
                     ingresso.codigo))
+
+            /*
             event.eventos.add(Evento("Breja Diferenciada",
                     "Bar da Curva - Dois Irmãos, \nRecife, \n789",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
@@ -121,7 +121,28 @@ class Tab0EventsActivity : Fragment(){
                     -34.945425,
                     false,
                     ingresso.codigo))
+
+                    */
         }
+
+        /*
+        val name: String,
+                  val address: String,
+                  val description: String,
+                  val dateHour: String,
+                  val price: Int,
+                  val numTickets: Int,
+                  val image: String,
+                  val cordLat: Double,
+                  val cordLng: Double,
+                  var favorite: Boolean,
+                  val ticket: Long)
+
+         */
+
+        getDataFromFirebase()
+
+
     //creating our adapter
     val adapter = CustomAdapter(event.eventos)
 
@@ -138,9 +159,50 @@ class Tab0EventsActivity : Fragment(){
         return view
     }
 
+    fun getDataFromFirebase() {
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference()
+
+        val newReference = database!!.getReference("eventos")
+
+        newReference.addValueEventListener(object : ValueEventListener {
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                //println(p0)
+                //println("children: " + p0!!.children)
+                //println("key:" + p0!!.key)
+                //println("value:" + p0!!.value)
+
+                //postAdapter!!.clear()
+                //event.eventos.clear()
+
+                for (snapshot in p0.children) {
+
+                    val hashMap = snapshot.value as HashMap<String, *>
+
+                    if (hashMap.size > 0) {
+
+                    val evento = Evento(hashMap["name"].toString(), hashMap["address"].toString(), hashMap["description"].toString(), hashMap["dateHour"].toString(), hashMap["price"].toString().toInt(), hashMap["numTickets"].toString().toInt(),hashMap["image"].toString(),hashMap["cordLat"].toString().toDouble() ,hashMap["cordLng"].toString().toDouble(), false, hashMap["ticket"].toString().toLong() )
+                        Tab0EventsActivity.event.eventos.add(evento)
+
+                        //postAdapter!!.notifyDataSetChanged()
+                    }
+                }
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
+
+    }
+
 }
 
 private fun <E> ArrayList<E>.add(element: Favorito) {
 
 }
+
+
 
