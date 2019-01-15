@@ -1,13 +1,12 @@
 package com.exercise.elal.prototipodetelas
 
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatActivity
 import android.widget.Button
-import android.widget.Toast
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 
 
@@ -33,7 +32,8 @@ class DetalheActivity : AppCompatActivity() {
         textViewAddress.text = endereco
         textViewDate.text = data
         textViewDescription.text = descricao
-        Glide.with(this).load(imagem).into(imageView)
+        if(!imagem.isEmpty())
+            Glide.with(this).load(imagem).into(imageView)
 
         val detalhes = findViewById(R.id.btnReservar) as Button?
 

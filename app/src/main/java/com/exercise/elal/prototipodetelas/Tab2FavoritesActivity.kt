@@ -27,7 +27,6 @@ class Tab2FavoritesActivity : Fragment(){
 
         }
 
-        
         recyclerView.adapter = ViewPagerAdapter(favoritos)
         return view
     }

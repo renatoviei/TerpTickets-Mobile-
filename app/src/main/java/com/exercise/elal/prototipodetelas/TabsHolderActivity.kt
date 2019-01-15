@@ -1,19 +1,17 @@
 package com.exercise.elal.prototipodetelas
 
 import android.content.Intent
+import android.os.Bundle
 import android.support.design.widget.TabLayout
-import android.support.v7.app.AppCompatActivity
-
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
-
 import kotlinx.android.synthetic.main.activity_tab.*
 
 class TabsHolderActivity : AppCompatActivity() {
@@ -50,6 +48,10 @@ class TabsHolderActivity : AppCompatActivity() {
         mAuth?.signOut()
         var intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+    }
+    fun goTelaAdd(v: View) {
+        val i = Intent(this, newEventActivity::class.java)
+        startActivity(i)
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

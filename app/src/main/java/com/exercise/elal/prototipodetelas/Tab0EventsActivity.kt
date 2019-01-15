@@ -1,8 +1,5 @@
 package com.exercise.elal.prototipodetelas
 
-import android.content.Intent
-import android.content.Intent.getIntent
-import android.content.Intent.getIntentOld
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -13,11 +10,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.exercise.elal.prototipodetelas.R.layout.fragment_tab_event
 import com.exercise.elal.prototipodetelas.Tab0EventsActivity.event.favoritos
+import com.google.firebase.database.FirebaseDatabase
 import model.Evento
 import model.Favorito
 import model.Ingresso
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 
 
@@ -32,15 +28,15 @@ class Tab0EventsActivity : Fragment(){
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_tab_event,container, false)
+        val view: View = inflater.inflate(fragment_tab_event,container, false)
 
-    //getting recyclerview from xml
-    val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
+        //getting recyclerview from xml
+        val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
 
         recyclerView.setHasFixedSize(true)
 
-    //adding a layoutmanager
-    recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
+        //adding a layoutmanager
+        recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
 
         if(event.eventos.isEmpty()) {
             // Write a message to the database
@@ -122,25 +118,26 @@ class Tab0EventsActivity : Fragment(){
                     false,
                     ingresso.codigo))
         }
-    //creating our adapter
-    val adapter = CustomAdapter(event.eventos)
+        //creating our adapter
+        val adapter = CustomAdapter(event.eventos)
 
-        event.favoritos.clear()
+        favoritos.clear()
         if(event.eventos.isNotEmpty()){
-            event.eventos.filterTo(event.favoritos) { it.favorite == true }
+            event.eventos.filterTo(favoritos) { it.favorite == true }
         }
 
-
-
-
         //now adding the adapter to recyclerview
-    recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
         return view
     }
 
 }
 
+
 private fun <E> ArrayList<E>.add(element: Favorito) {
 
 }
+
+
+
 

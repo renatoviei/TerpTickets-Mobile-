@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import model.Evento
 
@@ -53,6 +55,7 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
             textViewDate.text = event.dateHour
             val detalhes = itemView.findViewById(R.id.detalhes) as Button?
             val floatingActionButton8 = itemView.findViewById(R.id.floatingActionButton8) as FloatingActionButton
+
 
 
             floatingActionButton8?.setOnClickListener{

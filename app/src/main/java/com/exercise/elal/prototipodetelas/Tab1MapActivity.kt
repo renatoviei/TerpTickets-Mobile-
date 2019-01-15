@@ -3,6 +3,8 @@ package com.exercise.elal.prototipodetelas
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -11,9 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import com.exercise.elal.prototipodetelas.Tab0EventsActivity.event.eventos
 
 
 class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
@@ -79,7 +78,7 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         for (i in eventList){
             gMap.addMarker(MarkerOptions().position(LatLng(i.cordLat, i.cordLng))
                                           .title(i.address)
-                                          .snippet(R.string.eventhr.toString() + i.name.toString())
+                                          .snippet(getString(R.string.eventhr) + " " + i.name)
                                           .icon(markerFin))
         }
 
