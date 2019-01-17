@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import model.Evento
 
-class newEventActivity : AppCompatActivity() {
+class NewEventActivity : AppCompatActivity() {
 
     lateinit var editTextName: EditText
     lateinit var editTextAddress: EditText
@@ -81,12 +81,24 @@ class newEventActivity : AppCompatActivity() {
             return
         }
 
-        val ref = FirebaseDatabase.getInstance().getReference("Eventos")
-        val eventID = ref.push().key.toString()
-        val event = Evento(name, addres, description, dateHour, price, numTick, image, -8.017750, -34.944350, false, 123456789)
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.reference
 
-        ref.child(eventID).setValue(event).addOnCompleteListener {
-            Toast.makeText(applicationContext, "Event Saved", Toast.LENGTH_SHORT).show()
-        }
+        myRef.setValue("Hello, World!")
+
+        database.reference.child("eventos").child(name)
+                .setValue(
+                Evento(name,
+                        addres,
+                        description,
+                        dateHour,
+                        price,
+                        numTick,
+                        image,
+                        -8.017750,
+                        -34.944350,
+                        false,
+                        123456789)).addOnCompleteListener {
+                        Toast.makeText(applicationContext, "Event Saved", Toast.LENGTH_SHORT).show()}
     }
 }

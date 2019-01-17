@@ -58,12 +58,8 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
 
 
 
-            floatingActionButton8?.setOnClickListener{
-                if(event.favorite == false) {
-                    event.favorite = true
-                }else{
-                    event.favorite = false
-                }
+            floatingActionButton8.setOnClickListener{
+                event.favorite = event.favorite == false
             }
 
 

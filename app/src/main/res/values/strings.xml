@@ -33,4 +33,22 @@
     <string name="localizacao">Candeias</string>
     <string name="Reserv">Reservar</string>
     <string name="eventhr">Eventos aqui:</string>
+    <string name="hint_enter_url">Insira a url aqui</string>
+    <string name="textViewNewEventName">Nome</string>
+    <string name="textViewNewEventAddress">Endereço</string>
+    <string name="textViewNewEventDescription">Descrição</string>
+    <string name="textViewNewEventDate">Data-Hora</string>
+    <string name="textViewNewEventPrice">Preço</string>
+    <string name="textViewNewEventTicketAmount">Qtd. Ingressos</string>
+    <string name="textViewNewEventImage">Imagem</string>
+    <string name="textViewNewEventScreenLabel">Dados do Evento:</string>
+    <string name="title_new_event">Criar um novo Evento</string>
+    <string name="HintNewEventDateHour" translatable="false">31/12-23h</string>
+    <string name="ButtonSave">Salvar</string>
+    <string name="ButtonCancel">Cancelar</string>
+    <string name="appName" translatable="false">Terp Tickets</string>
+    <string name="textViewSignUp" translatable="false">Sign Up</string>
+    <string name="textSampleAuthent">Autenticando...</string>
+    <string name="textSampleFillFields">Preencha os campos corretamente!</string>
+    <string name="textSampleSucess">Sucesso!</string>
 </resources>

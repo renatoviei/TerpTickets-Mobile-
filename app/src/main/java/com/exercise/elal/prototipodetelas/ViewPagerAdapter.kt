@@ -6,9 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import com.exercise.elal.prototipodetelas.R.id.*
 import model.Favorito
 
 class ViewPagerAdapter (val favoritos: ArrayList<Favorito>): RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>(){
@@ -37,12 +35,13 @@ class ViewPagerAdapter (val favoritos: ArrayList<Favorito>): RecyclerView.Adapte
             descEvento?.text = fav.endereco
             val floatingActionButton2 = itemView.findViewById(R.id.floatingActionButton2) as FloatingActionButton
 
-           floatingActionButton2?.setOnClickListener{
+           floatingActionButton2.setOnClickListener{
                 val i = Intent(itemView.context, DetalheActivity::class.java)
                 i.putExtra("NAME", fav.title)
                 i.putExtra("ADRESS", fav.endereco)
                 i.putExtra("DATE", fav.dateHour)
                 i.putExtra("DESCRIPTION", fav.description)
+                i.putExtra("IMAGE", fav.image)
                 itemView.context.startActivity(i)
             }
         }

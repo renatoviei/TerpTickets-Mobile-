@@ -31,4 +31,19 @@
     <string name="Reserv">Reserve</string>
     <string name="out">Log Out</string>
     <string name="eventhr">Events here:</string>
+    <string name="hint_enter_url">Enter url here</string>
+    <string name="textViewNewEventName">Name</string>
+    <string name="textViewNewEventAddress">Address</string>
+    <string name="textViewNewEventDescription">Description</string>
+    <string name="textViewNewEventDate">Date-Hour</string>
+    <string name="textViewNewEventPrice">Price</string>
+    <string name="textViewNewEventTicketAmount">Tickets Amout</string>
+    <string name="textViewNewEventImage">Image</string>
+    <string name="textViewNewEventScreenLabel">Event Data:</string>
+    <string name="title_new_event">Create a new Event</string>
+    <string name="ButtonSave">Save</string>
+    <string name="ButtonCancel">Cancel</string>
+    <string name="textSampleAuthent">Authenticating...</string>
+    <string name="textSampleFillFields">Fill the fields correctly!</string>
+    <string name="textSampleSucess">Sucess!</string>
 </resources>

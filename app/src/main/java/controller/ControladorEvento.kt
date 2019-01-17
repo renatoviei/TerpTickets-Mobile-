@@ -11,13 +11,13 @@ class ControladorEventos{
 
 
     fun buscarEvento(nome: String): Evento? {
-        var even: Evento? = null
+//        var even: Evento? = null
 //        if (this.repositorio.buscarEvento(nome) == null) {
 //            println("Evento não existe")
 //        } else {
 //            even = repositorio.buscarEvento(nome)
 //        }
-        return even
+        return null
     }
 
 //    fun existe(nome: String): Boolean {

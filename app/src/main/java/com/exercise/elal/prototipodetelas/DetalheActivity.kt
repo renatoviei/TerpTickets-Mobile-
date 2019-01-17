@@ -22,11 +22,11 @@ class DetalheActivity : AppCompatActivity() {
         val endereco:String = intent.getStringExtra("ADRESS")
         val imagem:String = intent.getStringExtra("IMAGE")
 
-        val textViewName = findViewById(R.id.eventTitle) as TextView
-        val textViewAddress  = findViewById(R.id.localizacao) as TextView
-        val textViewDate  = findViewById(R.id.data_hora) as TextView
-        val textViewDescription  = findViewById(R.id.eventDetail) as TextView
-        val imageView = findViewById(R.id.eventImg) as ImageView
+        val textViewName = findViewById<TextView>(R.id.eventTitle)
+        val textViewAddress  = findViewById<TextView>(R.id.localizacao)
+        val textViewDate  = findViewById<TextView>(R.id.data_hora)
+        val textViewDescription  = findViewById<TextView>(R.id.eventDetail)
+        val imageView = findViewById<ImageView>(R.id.eventImg)
 
         textViewName.text = nome
         textViewAddress.text = endereco
@@ -35,7 +35,7 @@ class DetalheActivity : AppCompatActivity() {
         if(!imagem.isEmpty())
             Glide.with(this).load(imagem).into(imageView)
 
-        val detalhes = findViewById(R.id.btnReservar) as Button?
+        val detalhes = findViewById<Button>(R.id.btnReservar)
 
 
         detalhes?.setOnClickListener {
@@ -60,7 +60,7 @@ class DetalheActivity : AppCompatActivity() {
             alerta?.show()
         }
 
-        val image = findViewById(R.id.imageView3) as ImageView?
+        val image = findViewById<ImageView>(R.id.imageView3)
 
         image?.setOnClickListener {
             this.finish()

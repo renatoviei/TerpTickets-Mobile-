@@ -13,8 +13,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
+import kotlinx.android.synthetic.main.fragment_tab_event.*
 
 
+@Suppress("DEPRECATION")
 class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
 
     private val LOCATION_REQUEST_CODE = 101
@@ -22,6 +24,12 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
     lateinit var gMap: GoogleMap
     lateinit var mapV: MapView
     lateinit var mView: View
+
+    override fun onStart() {
+        super.onStart()
+        val ad = recyclerView?.adapter
+        ad?.notifyDataSetChanged()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +58,8 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         MapsInitializer.initialize(context)
 
         //controles de mapa
-        googleMap.uiSettings.setCompassEnabled(true)
-        googleMap.uiSettings.setZoomControlsEnabled(true)
+        googleMap.uiSettings.isCompassEnabled = true
+        googleMap.uiSettings.isZoomControlsEnabled = true
         googleMap.uiSettings.isMyLocationButtonEnabled = true
         googleMap.setOnMarkerClickListener(this)
 
@@ -59,8 +67,6 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         {
             googleMap.isMyLocationEnabled = true
         }
-
-        //algumas cordenadas
         val stPt = LatLng(-8.047460, -34.917462) //ponto inicial do zoom do mapa
 
         gMap = googleMap
@@ -74,7 +80,7 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
         val markerFin = BitmapDescriptorFactory.fromBitmap(smallMarker)
 
         // criação dos pontos no mapa
-        val eventList = Tab0EventsActivity.event.eventos
+        val eventList = Tab0EventsActivity.Event.eventos
         for (i in eventList){
             gMap.addMarker(MarkerOptions().position(LatLng(i.cordLat, i.cordLng))
                                           .title(i.address)
@@ -82,9 +88,9 @@ class Tab1MapActivity : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickL
                                           .icon(markerFin))
         }
 
-        val start_point : CameraPosition = CameraPosition.builder().target(stPt).zoom(13F).bearing(4F).build()
+        val startPoint : CameraPosition = CameraPosition.builder().target(stPt).zoom(13F).bearing(4F).build()
 
-        gMap.moveCamera(CameraUpdateFactory.newCameraPosition(start_point))
+        gMap.moveCamera(CameraUpdateFactory.newCameraPosition(startPoint))
 
 
     }

@@ -9,90 +9,49 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_tab.*
 
 class TabsHolderActivity : AppCompatActivity() {
 
-    /**
-     * The [android.support.v4.view.PagerAdapter] that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * [android.support.v4.app.FragmentStatePagerAdapter].
-     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
     private var mAuth: FirebaseAuth? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab)
-        mAuth = FirebaseAuth.getInstance()
-        var btnLogout = findViewById<Button>(R.id.logout)
-        btnLogout.setOnClickListener {view ->
-            signOut()
-        }
-        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
-        // Set up the ViewPager with the sections adapter.
-        container.adapter = mSectionsPagerAdapter
+        mAuth = FirebaseAuth.getInstance()
+        val btnLogout = findViewById<Button>(R.id.logout)
+        btnLogout.setOnClickListener {signOut()
+        }
+
+        mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
+        container.adapter = mSectionsPagerAdapter // Set up the ViewPager with the sections adapter.
 
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
     }
 
-    fun signOut(){
-        mAuth?.signOut()
-        var intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-    }
-    fun goTelaAdd(v: View) {
-        val i = Intent(this, newEventActivity::class.java)
-        startActivity(i)
-    }
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_tab, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-        if (id == R.id.action_settings) {
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
-
-    /**
-     * A [FragmentPagerAdapter] that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
 
-            when(position){
+            return when(position){
 
                 0 -> {
-                    return Tab0EventsActivity()
+                    Tab0EventsActivity()
                 }
                 1 -> {
-                    return Tab1MapActivity()
+                    Tab1MapActivity()
                 }
                 2 -> {
-                    return Tab2FavoritesActivity()
+                    Tab2FavoritesActivity()
                 }
-                else -> return null
+                else -> null
             }
 
         }
@@ -119,6 +78,30 @@ class TabsHolderActivity : AppCompatActivity() {
         }
     }
 
+
+    fun signOut(){
+        mAuth?.signOut()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun goTelaAdd() {
+        val i = Intent(this, NewEventActivity::class.java)
+        startActivity(i)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_tab, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.action_settings) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 }

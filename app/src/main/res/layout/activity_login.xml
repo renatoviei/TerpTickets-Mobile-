@@ -92,14 +92,14 @@
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/fb2"
+                android:id="@+id/btnSignUp"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/colorFacebook"
                 android:onClick="goTelaMenu"
-                android:text="@string/fb_login"
+                android:text="@string/textViewSignUp"
                 android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
