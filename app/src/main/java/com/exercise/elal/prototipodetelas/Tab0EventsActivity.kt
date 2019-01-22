@@ -19,6 +19,8 @@ import model.Evento
 import model.Ingresso
 
 
+
+
 class Tab0EventsActivity : Fragment(){
 
     object Event {
@@ -94,7 +96,6 @@ class Tab0EventsActivity : Fragment(){
             database.reference.child("eventos").child("colagrau").setValue(colagrau)
             database.reference.child("eventos").child("brejadiferenciada").setValue(brejadif)
         }
-
         val adapter = CustomAdapter(Event.eventos) //creating our adapter
 
         Event.favoritos.clear()
@@ -104,6 +105,8 @@ class Tab0EventsActivity : Fragment(){
         recyclerView.adapter = adapter //now adding the adapter to recyclerview
         return view
     }
+
+
 
     fun getDataFromFirebase() {
         val database = FirebaseDatabase.getInstance()

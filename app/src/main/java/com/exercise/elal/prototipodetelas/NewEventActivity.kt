@@ -88,17 +88,17 @@ class NewEventActivity : AppCompatActivity() {
 
         database.reference.child("eventos").child(name)
                 .setValue(
-                Evento(name,
-                        addres,
-                        description,
-                        dateHour,
-                        price,
-                        numTick,
-                        image,
-                        -8.017750,
-                        -34.944350,
-                        false,
-                        123456789)).addOnCompleteListener {
-                        Toast.makeText(applicationContext, "Event Saved", Toast.LENGTH_SHORT).show()}
+                        Evento(name,
+                                addres,
+                                description,
+                                dateHour,
+                                price,
+                                numTick,
+                                image,
+                                -8.017750,
+                                -34.944350,
+                                false,
+                                123456789)).addOnCompleteListener {
+                    Toast.makeText(applicationContext, "Event Saved", Toast.LENGTH_SHORT).show()}
     }
 }

@@ -25,7 +25,7 @@ class Tab2FavoritesActivity : Fragment(){
         //carrega favoritos da lista de eventos
         val favoriteList = Tab0EventsActivity.Event.favoritos
         for (i in favoriteList){
-            favList.add(Favorito(i.name, i.address, i.description, i.dateHour, i.image))
+            favList.add(Favorito(i.name, i.address, i.description, i.numTickets, i.dateHour, i.image))
         }
 
         recyclerView.adapter = ViewPagerAdapter(favList)

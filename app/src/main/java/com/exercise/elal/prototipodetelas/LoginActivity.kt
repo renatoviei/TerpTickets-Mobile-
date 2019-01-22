@@ -16,6 +16,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import model.Cliente
 import java.util.*
 
 
@@ -31,7 +32,7 @@ class LoginActivity : AppCompatActivity(){
 
         mAuth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mDatabaseReference = mDatabase!!.reference.child("Users")
 
         val btnLogin = findViewById<Button>(R.id.email_sign_in_button)
         btnLogin.setOnClickListener {view ->
@@ -39,7 +40,7 @@ class LoginActivity : AppCompatActivity(){
         }
 
         val btnSignUp = findViewById<Button>(R.id.btnSignUp)
-        btnSignUp.setOnClickListener {view ->
+        btnSignUp?.setOnClickListener {view ->
             signUp(view,findViewById<TextView>(R.id.email).text.toString(), findViewById<TextView>(R.id.password).text.toString())
         }
     }
@@ -70,11 +71,12 @@ class LoginActivity : AppCompatActivity(){
 
         mAuth?.createUserWithEmailAndPassword(email, password)?.addOnCompleteListener { task: Task<AuthResult> ->
             if (task.isSuccessful) {
-                val firebaseUser = mAuth?.currentUser!!
+                val firebaseUser = mAuth?.currentUser
                 showMessage(view, getString(R.string.textSampleSucess))
 
+
                 val currentUserDb = mDatabaseReference!!.child(('a'..'z').randomString(10))
-                    currentUserDb.child("userID").setValue(email)
+                currentUserDb.child("userID").setValue(email)
             } else {
                 showMessage(view, "ERROR 0!")
             }
