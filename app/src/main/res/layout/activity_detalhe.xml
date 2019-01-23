@@ -9,39 +9,42 @@
 
     <ImageView
         android:id="@+id/eventImg"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="291dp"
+        android:layout_height="223dp"
         android:layout_marginTop="17dp"
         android:layout_marginBottom="17dp"
         app:layout_constraintBottom_toTopOf="@+id/eventTitle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.139"
         app:srcCompat="@drawable/rolling" />
 
     <TextView
         android:id="@+id/eventTitle"
-        android:layout_width="201dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="289dp"
+        android:layout_width="280dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="264dp"
         android:text="Som de Doido"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.775"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/eventDetail"
         android:layout_width="296dp"
-        android:layout_height="119dp"
+        android:layout_height="137dp"
         android:layout_marginTop="51dp"
         android:layout_marginBottom="52dp"
         android:text="Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa."
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toStartOf="@+id/data_hora"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="@+id/data_hora"
         app:layout_constraintTop_toTopOf="@+id/eventTitle"
         app:layout_constraintVertical_bias="0.0" />
@@ -64,8 +67,8 @@
 
     <ImageView
         android:id="@+id/ico_loc"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
+        android:layout_width="43dp"
+        android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="7dp"
@@ -78,8 +81,8 @@
 
     <ImageView
         android:id="@+id/ico_cal"
-        android:layout_width="35dp"
-        android:layout_height="0dp"
+        android:layout_width="43dp"
+        android:layout_height="33dp"
         android:layout_marginStart="131dp"
         android:layout_marginEnd="133dp"
         android:layout_marginBottom="2dp"
@@ -92,7 +95,7 @@
     <TextView
         android:id="@+id/localizacao"
         android:layout_width="77dp"
-        android:layout_height="71dp"
+        android:layout_height="97dp"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="65dp"
@@ -106,12 +109,13 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginBottom="7dp"
         android:text="@string/data_hora"
         app:layout_constraintBottom_toBottomOf="@+id/ico_cal"
         app:layout_constraintEnd_toStartOf="@+id/numTickets"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView3"
