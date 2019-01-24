@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import model.Evento
+import model.Usuario
 import java.util.*
 
 
@@ -75,6 +77,14 @@ class LoginActivity : AppCompatActivity(){
 
                 val currentUserDb = mDatabaseReference!!.child(('a'..'z').randomString(10))
                     currentUserDb.child("userID").setValue(email)
+
+
+                val ingressos: LongArray? = null
+                val favoritos: Array<Evento>? = null
+                val newUser = Usuario(email, ingressos, favoritos)
+
+                 currentUserDb.setValue(newUser)
+
             } else {
                 showMessage(view, "ERROR 0!")
             }
