@@ -1,8 +1,8 @@
 package com.exercise.elal.prototipodetelas
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/terptickets-3c6ca.appspot.com/o/terp_logo.png?alt=media&token=4adaf08f-30bc-4950-af7e-fa07341e933c").into(imageView)
+        //FirebaseApp.initializeApp(this)
 
         val background = object : Thread(){
             override fun run() {
@@ -31,12 +32,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         background.start()
-    }
-
-    fun goTelaLogin(v : View){
-        val i = Intent(this, LoginActivity::class.java)
-        startActivity(i)
-        finish()
     }
 
     fun goTelaMenu(v : View){

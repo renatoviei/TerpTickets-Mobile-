@@ -9,17 +9,17 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/tickets"
+        android:icon="@drawable/terp_logo"
         android:label="Terp Tickets"
         android:roundIcon="@drawable/terp_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -29,20 +29,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".LoginActivity"
             android:label="Sing in"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+
         <activity
             android:name=".TabsHolderActivity"
             android:label="TabActivity"
             android:theme="@style/NoActionBar" />
 
+        <activity android:name=".DetalheActivity" />
+
+        <activity android:name=".NewEventActivity"
+            android:label="Create Event"/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAS0ztoRkCFMXZeSmfM5kTbNdY336Bz1Eg" />
 
-        <activity android:name=".DetalheActivity"></activity>
     </application>
 
 </manifest>

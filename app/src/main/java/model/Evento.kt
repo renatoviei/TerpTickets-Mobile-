@@ -1,8 +1,5 @@
 package model
 
-import android.util.EventLog
-
-
 data class Evento(val name: String?,
                   val address: String?,
                   val description: String?,

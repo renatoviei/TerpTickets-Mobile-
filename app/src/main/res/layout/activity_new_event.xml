@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    tools:context=".NewEventActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <EditText
+        android:id="@+id/editText_evtImg"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/hint_enter_url"
+        android:inputType="textUri"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_evtTick" />
+
+    <TextView
+        android:id="@+id/lbl_evtImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_evtTick" />
+
+    <EditText
+        android:id="@+id/editText_evtTick"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_evtPrc" />
+
+    <TextView
+        android:id="@+id/lbl_evtTick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventTicketAmount"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editText_evtTick"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_evtPrc"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText_evtDt" />
+
+    <TextView
+        android:id="@+id/lbl_evtPrc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="27dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_evtDt" />
+
+    <EditText
+        android:id="@+id/editText_evtDt"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="31/12-23h"
+        android:inputType="datetime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_evtDesc" />
+
+    <TextView
+        android:id="@+id/lbl_evtDt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="21dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_evtDesc" />
+
+    <EditText
+        android:id="@+id/editText_evtDesc"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_evtAdr" />
+
+    <TextView
+        android:id="@+id/lbl_evtDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="7dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventDescription"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_evtDesc"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_evtAdr"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_evtNm" />
+
+    <TextView
+        android:id="@+id/lbl_evtAdr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_evtNm" />
+
+    <TextView
+        android:id="@+id/CrtEvt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/textViewNewEventScreenLabel"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_evtNm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="left"
+        android:text="@string/textViewNewEventName"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_evtNm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText_evtNm" />
+
+    <EditText
+        android:id="@+id/editText_evtNm"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="14dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CrtEvt" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@color/colorAccent"
+        android:padding="2dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cancel" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:background="@android:drawable/btn_default"
+        android:backgroundTint="@color/colorAccent5"
+        android:padding="2dp"
+        android:text="Cancel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_save"
+        app:layout_constraintStart_toStartOf="@+id/editText_evtImg" />
+</android.support.constraint.ConstraintLayout>

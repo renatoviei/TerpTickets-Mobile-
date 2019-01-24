@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import model.Evento
 
@@ -55,12 +57,9 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
             val floatingActionButton8 = itemView.findViewById(R.id.floatingActionButton8) as FloatingActionButton
 
 
-            floatingActionButton8?.setOnClickListener{
-                if(event.favorite == false) {
-                    event.favorite = true
-                }else{
-                    event.favorite = false
-                }
+
+            floatingActionButton8.setOnClickListener{
+                event.favorite = event.favorite == false
             }
 
 

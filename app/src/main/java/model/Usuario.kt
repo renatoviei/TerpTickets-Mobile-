@@ -1,6 +1,6 @@
 package model
 
-data class Cliente(val login: String,
+data class Usuario (val login: String,
                    val senha: String,
                    val ingressos: LongArray,
                    val favoritos: Array<Evento>)
