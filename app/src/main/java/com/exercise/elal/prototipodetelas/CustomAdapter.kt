@@ -49,6 +49,7 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
             val textViewDescription  = event.description
             val imageView  = itemView.findViewById(R.id.eventImage) as ImageView
 
+
             Glide.with(itemView).load(event.image).into(imageView)
             textViewName.text = event.name
             textViewAddress.text = event.address
@@ -70,6 +71,7 @@ class CustomAdapter(val eventList: ArrayList<Evento>) : RecyclerView.Adapter<Cus
                 i.putExtra("DATE", textViewDate.text as String)
                 i.putExtra("DESCRIPTION", textViewDescription)
                 i.putExtra("IMAGE", event.image)
+                i.putExtra("NUMERO", event.numTickets.toString())
                 itemView.context.startActivity(i)
             }
         }

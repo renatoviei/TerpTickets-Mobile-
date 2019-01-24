@@ -35,10 +35,11 @@ class ViewPagerAdapter (val favoritos: ArrayList<Favorito>): RecyclerView.Adapte
             descEvento?.text = fav.endereco
             val floatingActionButton2 = itemView.findViewById(R.id.floatingActionButton2) as FloatingActionButton
 
-           floatingActionButton2.setOnClickListener{
+            floatingActionButton2.setOnClickListener{
                 val i = Intent(itemView.context, DetalheActivity::class.java)
                 i.putExtra("NAME", fav.title)
                 i.putExtra("ADRESS", fav.endereco)
+                i.putExtra("NUMERO", fav.numTickets.toString())
                 i.putExtra("DATE", fav.dateHour)
                 i.putExtra("DESCRIPTION", fav.description)
                 i.putExtra("IMAGE", fav.image)
