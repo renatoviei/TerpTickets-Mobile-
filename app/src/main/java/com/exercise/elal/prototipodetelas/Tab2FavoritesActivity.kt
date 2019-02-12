@@ -20,10 +20,14 @@ class Tab2FavoritesActivity : Fragment(){
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
 
-        val favList = ArrayList<Favorito>()
 
-        //carrega favoritos da lista de eventos
+        val favList = ArrayList<Favorito>()
         val favoriteList = Tab0EventsActivity.Event.favoritos
+
+        Tab0EventsActivity.Event.favoritos.clear()
+        if(Tab0EventsActivity.Event.eventos.isNotEmpty()){
+            Tab0EventsActivity.Event.eventos.filterTo(Tab0EventsActivity.Event.favoritos) { it.favorite == true }
+        }
         for (i in favoriteList){
             favList.add(Favorito(i.name, i.address, i.description, i.numTickets, i.dateHour, i.image))
         }

@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import model.Evento
+import java.util.*
 
 class NewEventActivity : AppCompatActivity() {
 
@@ -84,11 +85,11 @@ class NewEventActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.reference
 
-        myRef.setValue("Hello, World!")
+       val ev1_id = ('a'..'z').randomString(10)
 
-        database.reference.child("eventos").child(name)
+        database.reference.child("eventos").child(ev1_id)
                 .setValue(
-                        Evento(name,
+                        Evento(ev1_id,name,
                                 addres,
                                 description,
                                 dateHour,
@@ -100,5 +101,12 @@ class NewEventActivity : AppCompatActivity() {
                                 false,
                                 123456789)).addOnCompleteListener {
                     Toast.makeText(applicationContext, "Event Saved", Toast.LENGTH_SHORT).show()}
+
     }
+
+    fun ClosedRange<Char>.randomString(lenght: Int) =
+            (1..lenght)
+                    .map { (Random().nextInt(endInclusive.toInt() - start.toInt()) + start.toInt()).toChar() }
+                    .joinToString("")
+
 }

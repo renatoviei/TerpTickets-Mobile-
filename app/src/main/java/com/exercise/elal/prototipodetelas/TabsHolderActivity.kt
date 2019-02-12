@@ -28,6 +28,12 @@ class TabsHolderActivity : AppCompatActivity() {
         btnLogout.setOnClickListener {signOut()
         }
 
+        val Newbutton = findViewById<Button>(R.id.Newbutton)
+        Newbutton.setOnClickListener {goTelaAdd()
+        }
+
+
+
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         container.adapter = mSectionsPagerAdapter // Set up the ViewPager with the sections adapter.
 

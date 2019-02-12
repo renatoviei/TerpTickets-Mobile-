@@ -17,6 +17,8 @@ import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_tab_event.*
 import model.Evento
 import model.Ingresso
+import java.util.*
+import android.text.TextUtils
 
 
 
@@ -56,9 +58,11 @@ class Tab0EventsActivity : Fragment(){
             val database = FirebaseDatabase.getInstance()     // Write a message to the database
             val myRef = database.reference
             val ingresso = Ingresso(123456789)
-            myRef.setValue("Hello, World!")
-
-            val somdedoido = Evento("Som de Doido 2",
+            //myRef.setValue("Hello, World!")
+                val ev1_id = ('a'..'z').randomString(10)
+            val somdedoido = Evento(
+                    ev1_id,
+                    "Som de Doido 2",
                     "Dois Irmãos, \nRecife, \n123",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
                     "20/11-16h",
@@ -69,7 +73,10 @@ class Tab0EventsActivity : Fragment(){
                     -34.944367,
                     false,
                     ingresso.codigo)
-            val colagrau = Evento("Cola Grau - A União",
+            val ev2_id = ('a'..'z').randomString(10)
+            val colagrau = Evento(
+                        ev2_id,
+                    "Cola Grau - A União",
                     "Salão Nobre UFRPE - Dois Irmãos, \nRecife, \n456",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
                     "20/11-14h",
@@ -80,7 +87,10 @@ class Tab0EventsActivity : Fragment(){
                     -34.950528,
                     false,
                     ingresso.codigo)
-            val brejadif = Evento("Breja Diferenciada",
+            val ev3_id = ('a'..'z').randomString(10)
+            val brejadif = Evento(
+                    ev3_id,
+                    "Breja Diferenciada",
                     "Bar da Curva - Dois Irmãos, \nRecife, \n789",
                     "Et faucibus leo. Cras varius purus at massa interdum, a imperdiet turpis porta. Vestibulum massa neque, hendrerit ut nisi vel, accumsan eleifend orci. Suspendisse pulvinar ullamcorper finibus. Nulla posuere ut dui at bibendum. Nulla eu diam pellentesque, interdum purus nec, tristique massa.",
                     "20/11-20h",
@@ -92,21 +102,22 @@ class Tab0EventsActivity : Fragment(){
                     false,
                     ingresso.codigo)
 
-            database.reference.child("eventos").child("somdedoido").setValue(somdedoido)
-            database.reference.child("eventos").child("colagrau").setValue(colagrau)
-            database.reference.child("eventos").child("brejadiferenciada").setValue(brejadif)
+            database.reference.child("eventos").child(ev1_id).setValue(somdedoido)
+            database.reference.child("eventos").child(ev2_id).setValue(colagrau)
+            database.reference.child("eventos").child(ev3_id).setValue(brejadif)
+
         }
         val adapter = CustomAdapter(Event.eventos) //creating our adapter
-
-        Event.favoritos.clear()
-        if(Event.eventos.isNotEmpty()){
-            Event.eventos.filterTo(Event.favoritos) { it.favorite == true }
-        }
         recyclerView.adapter = adapter //now adding the adapter to recyclerview
+
         return view
     }
 
 
+    fun ClosedRange<Char>.randomString(lenght: Int) =
+            (1..lenght)
+                    .map { (Random().nextInt(endInclusive.toInt() - start.toInt()) + start.toInt()).toChar() }
+                    .joinToString("")
 
     fun getDataFromFirebase() {
         val database = FirebaseDatabase.getInstance()
@@ -122,7 +133,7 @@ class Tab0EventsActivity : Fragment(){
 
                     if (hashMap.size > 0) {
 
-                        val evento = Evento(hashMap["name"].toString(), hashMap["address"].toString(), hashMap["description"].toString(), hashMap["dateHour"].toString(), hashMap["price"].toString().toInt(), hashMap["numTickets"].toString().toInt(),hashMap["image"].toString(),hashMap["cordLat"].toString().toDouble() ,hashMap["cordLng"].toString().toDouble(), false, hashMap["ticket"].toString().toLong() )
+                        val evento = Evento(hashMap["id"].toString(),hashMap["name"].toString(), hashMap["address"].toString(), hashMap["description"].toString(), hashMap["dateHour"].toString(), hashMap["price"].toString().toInt(), hashMap["numTickets"].toString().toInt(),hashMap["image"].toString(),hashMap["cordLat"].toString().toDouble() ,hashMap["cordLng"].toString().toDouble(), false, hashMap["ticket"].toString().toLong() )
 
                         if(!Event.eventos.contains(evento)){
                             Tab0EventsActivity.Event.eventos.add(evento)}
